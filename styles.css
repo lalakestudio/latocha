@@ -12,6 +12,65 @@
   --max-width: 1180px;
 }
 
+/* Fonts served locally (assets/fonts) instead of Google's CDN, so no
+   visitor data is sent to a third party just to render text. */
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-500-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-latin-600-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/space-mono-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/space-mono-latin-700-normal.woff2") format("woff2");
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; background: var(--cream); }
@@ -117,13 +176,13 @@ a { color: inherit; }
   text-decoration: underline;
 }
 
-.whatsapp-link {
+.contact-link {
   display: inline-flex;
   align-items: center;
   gap: 5px;
 }
 
-.whatsapp-icon {
+.contact-icon {
   width: 13px;
   height: 13px;
   fill: currentColor;
@@ -285,6 +344,85 @@ a { color: inherit; }
   gap: 20px;
 }
 
+.footer__legal {
+  max-width: var(--max-width);
+  margin: 30px auto 0;
+  padding: 16px 40px 0;
+  border-top: 1px solid rgba(242, 233, 219, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--cream-text);
+  opacity: 0.85;
+}
+
+.footer__legal a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__legal a:hover,
+.footer__legal a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Legal pages (aviso-legal.html, privacidad.html) */
+.legal {
+  padding: 60px 0 100px;
+}
+
+.legal__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.legal__inner h1 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 8px;
+}
+
+.legal__updated {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+.legal__inner h2 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.legal__inner p,
+.legal__inner li {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.legal__inner ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal__inner a {
+  color: var(--ink);
+}
+
+.legal__placeholder {
+  background: var(--cream-alt);
+  border: 1px dashed var(--ink);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.legal__back {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   /* side margin measured directly from the mobile design (~12.8% of viewport) */
@@ -292,10 +430,14 @@ a { color: inherit; }
   .hero__inner,
   .mission__inner,
   .about__row,
-  .footer__inner {
+  .footer__inner,
+  .footer__legal,
+  .legal__inner {
     padding-left: 12%;
     padding-right: 12%;
   }
+
+  .footer__legal { flex-wrap: wrap; }
 
   .topbar__inner {
     grid-template-columns: 1fr 1fr;
